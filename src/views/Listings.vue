@@ -111,6 +111,7 @@ export default class Listings extends Vue {
   mounted() {}
 
   populateListings() {
+    this.loading = true;
     getListings(this.cityName)
       .then(result => {
         this.listings = result.results;
