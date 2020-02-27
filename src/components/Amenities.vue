@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-for="(a,i) in amenities" :key="i"> 
-            {{ a.display_name }}, {{ a.type }}
+        <div  v-for="(a,i) in amenities" :key="i"> 
+            <div class="amenities">{{ a.display_name }}, {{ a.type }}</div>
         </div>
     </div>
 </template>
@@ -16,4 +16,7 @@ export default class AmenitiesComponent extends Vue {
 </script>
 
 <style lang="less" scoped>
+.amenities{
+    float: left;
+}
 </style>

@@ -1,14 +1,10 @@
 <template>
   <div>
-    <v-app>
-    <v-carousel>
-      <v-carousel-item
-        v-for="image in images"
-        :key="image.order"
-        :src="image.sm_url"
-      ></v-carousel-item>
+    <v-carousel style="height: 250px;">
+      <v-carousel-item v-for="image in images" :key="image.order">
+        <v-img :src="image.sm_url" height="250px"></v-img>
+      </v-carousel-item>
     </v-carousel>
-    </v-app>
   </div>
 </template>
 
@@ -33,5 +29,4 @@ export default class ListingImagesComponent extends Vue {
 }
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

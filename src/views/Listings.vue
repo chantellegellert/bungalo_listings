@@ -1,13 +1,22 @@
 <template>
   <div>
-    <div class="content" v-if="!userName || userName === ''">
+    <div v-if="!userName || userName === ''">
       You must log in first.
       <router-link to="/">
         <button class="paginationButton bColorRegular">Go Login Page</button>
       </router-link>
     </div>
-    <div class="content" v-if="userName && userName !== ''">
-      <Listing v-for="l in listings" :key="l.id" :listing="l" />
+    <div
+      class="md-layout"
+      style="margin: 20px"
+      v-if="userName && userName !== ''"
+    >
+      <Listing
+        class="listings md-layout-item md-size-30 md-large-30 md-medium-size-30 md-medium-40 md-small-size-45 md-xsmall-size-100"
+        v-for="l in listings"
+        :key="l.id"
+        :listing="l"
+      />
     </div>
   </div>
 </template>
@@ -21,9 +30,9 @@ import { IListing } from "../common/interfaces";
 
 import Listing from "../components/Listing.vue";
 @Component({
-    components: {
-        Listing
-    }
+  components: {
+    Listing
+  }
 })
 export default class Listings extends Vue {
   private listings: IListing[] = [];
@@ -47,4 +56,12 @@ export default class Listings extends Vue {
 </script>
 
 <style lang="less" scoped>
+.md-layout {
+  margin: 20px;
+}
+.md-layout-item {
+  padding: 16px;
+  margin: 10px;
+  border-bottom: 3px solid black;
+}
 </style>
