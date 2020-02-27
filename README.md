@@ -1,4 +1,5 @@
 # House Listings
+This site is use to view available rooms in a variety of US cities. You can start searching by first entering in your name or choose to search anonymously. You wont be able to view any listings until you submit a name. Best of luck on your search!
 
 ## Project setup
 ```
@@ -13,16 +14,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration

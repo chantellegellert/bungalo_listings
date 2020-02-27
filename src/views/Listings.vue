@@ -60,7 +60,7 @@
 
       <div class="md-layout" style="margin: 20px" v-if="!loading">
         <Listing
-          class="listing-layout-item md-layout-item md-size-30 md-large-30 md-medium-size-30 md-medium-40 md-small-size-45 md-xsmall-size-100"
+          class="listing-layout-item md-layout-item md-size-30 md-large-30 md-medium-size-30 md-medium-40 md-small-size-100 md-xsmall-size-100"
           v-for="l in listings"
           :key="l.id"
           :listing="l"
