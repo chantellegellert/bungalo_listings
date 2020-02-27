@@ -7,7 +7,7 @@
       </router-link>
     </div>
     <div class="content" v-if="userName && userName !== ''">
-      Hello there {{ userName }}
+      {{ listings }}
     </div>
   </div>
 </template>
@@ -16,12 +16,17 @@
 import { Vue, Component } from "vue-property-decorator";
 import store from "@/store";
 
+import { getListings } from "../common/api";
+import { IListing } from "../common/interfaces";
+
 @Component({
-  components: {
-    
-  }
+    components: {
+
+    }
 })
-export default class Graph extends Vue {
+export default class Listings extends Vue {
+  private listings: IListing[] = [];
+
   get userName() {
     return this.$store.state.userName;
   }
@@ -30,7 +35,11 @@ export default class Graph extends Vue {
     super();
   }
 
-  created() {}
+  created() {
+    getListings().then(result => {
+      this.listings = result.results;
+    });
+  }
 
   mounted() {}
 }
