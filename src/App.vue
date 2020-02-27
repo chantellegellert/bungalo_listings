@@ -31,7 +31,7 @@
               </md-list-item>
             </router-link>
 
-            <router-link to="/graph">
+            <router-link to="/listings">
               <md-list-item @click="hideSidebar()">
                 <md-icon>business</md-icon>
 
@@ -79,7 +79,6 @@ export default class App extends Vue {
 }
 </script>
 
-<!-- not scoped to give default across form -->
 <style lang="less">
 body {
   height: 100%;

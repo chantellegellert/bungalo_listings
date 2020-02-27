@@ -14,7 +14,7 @@
     <div class="headline">{{ listing.headline }}</div>
 
     <v-card-actions>
-      <div class="price"> {{ listing.room_prices }} </div>
+      <div class="price">{{ priceRange }} </div>
 
       <v-spacer></v-spacer>
 
@@ -29,7 +29,7 @@
 
         <v-card-text>
           <Amenities :amenities="listing.amenities" />
-          {{ listing.room_amenities.length > 0 ? listing.room_amenities : '' }}
+          <RoomAmenities :amenities="listing.room_amenities" />
         </v-card-text>
       </div>
     </v-expand-transition>
@@ -40,12 +40,16 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IListing } from "../common/interfaces";
 
+import { min, max } from "lodash";
+
 import Amenities from "./Amenities.vue";
+import RoomAmenities from "./RoomAmenities.vue";
 import Images from "./ListingImages.vue";
 
 @Component({
   components: {
     Amenities,
+    RoomAmenities,
     Images
   },
   filters: {
@@ -61,6 +65,18 @@ export default class ListingComponent extends Vue {
 
   get showImages() {
     return this.listing.images && this.listing.images.length > 0;
+  }
+
+  get priceRange() {
+    if (this.listing && this.listing.room_prices && this.listing.room_prices.length > 1) {
+      return `$${min(this.listing.room_prices)} - ${max(this.listing.room_prices)}`;
+    }
+    else if (this.listing.room_prices.length === 1) {
+      return `$${this.listing.room_prices[0]}`;
+    }
+    else {
+      return "Contact for Prices";
+    }
   }
 
   created() {}
@@ -99,7 +115,7 @@ export default class ListingComponent extends Vue {
   padding-left: 0px;
   text-align: left;
 }
-.v-card__actions{
-    padding:0px;
+.v-card__actions {
+  padding: 0px;
 }
 </style>

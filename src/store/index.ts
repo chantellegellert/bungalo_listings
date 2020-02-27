@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userName: "",
+    cityName: "seattle"
   },
 
   mutations: {
@@ -15,7 +16,7 @@ export default new Vuex.Store({
   },
   actions: {
     adduserName(context, name: string) {
-        context.commit("adduserName", name);
+      context.commit("adduserName", name);
     }
   }
 });
