@@ -7,7 +7,7 @@
       </router-link>
     </div>
     <div class="content" v-if="userName && userName !== ''">
-      {{ listings }}
+      <Listing v-for="l in listings" :key="l.id" :listing="l" />
     </div>
   </div>
 </template>
@@ -19,9 +19,10 @@ import store from "@/store";
 import { getListings } from "../common/api";
 import { IListing } from "../common/interfaces";
 
+import Listing from "../components/Listing.vue";
 @Component({
     components: {
-
+        Listing
     }
 })
 export default class Listings extends Vue {
