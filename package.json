@@ -42,7 +42,7 @@
     "@vue/cli-service": "^3.12.1",
     "less": "^3.11.1",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typescript": "^3.8.2",
